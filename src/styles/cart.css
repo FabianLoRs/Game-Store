@@ -1,0 +1,27 @@
+/****** Estilos boton carrito ******/
+#button-cart {
+    border: none;
+    /* color: royalblue; */
+    font-size: 40px;
+    background-color: white;
+    /* border-radius: 50%; */
+    padding: 10px 20px;
+    transition: all .3s;
+}
+
+#button-cart:hover {
+    cursor: pointer;
+    color: white;
+    background-color: royalblue;
+}
+#button-cart:focus {
+    outline: none;
+}
+
+#contenedor-productos {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

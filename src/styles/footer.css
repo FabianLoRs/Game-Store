@@ -1,0 +1,24 @@
+.footer {
+    height: 100%;
+    width: 100%;
+   /* display: flex;*/
+    text-align: center;
+    padding: 3px;
+    background-color: var(--black);
+    color: var(--white);
+    margin-top: 20px;
+}
+
+@media (min-width:700px) {
+    .footer-div {
+        margin-bottom: 0;
+        
+    }
+}
+
+@media (min-width:350px) {
+    .footer-div {
+        margin-bottom: 0;
+        
+    }
+}
