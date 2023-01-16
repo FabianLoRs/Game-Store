@@ -9,14 +9,14 @@
     margin-top: 20px;
 }
 
-@media (min-width:700px) {
+@media (max-width:700px) {
     .footer-div {
         margin-bottom: 0;
-        
+        text-align: center;
     }
 }
 
-@media (min-width:350px) {
+@media (max-width:350px) {
     .footer-div {
         margin-bottom: 0;
         

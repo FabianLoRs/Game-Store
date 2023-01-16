@@ -35,7 +35,7 @@ stockProductos.forEach((producto) => {
         <p class="precioProducto">Precio:$ ${producto.precio}</p>
         <button id="agregar${producto.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
     `;
-    contenedorProductos.appendChild(div)
+    contenedorProductos.appendChild(div);
 
     const boton = document.getElementById(`agregar${producto.id}`);
 
@@ -87,13 +87,14 @@ const actualizarCarrito = () => {
 
     //Por cada producto creamos un div con esta estructura y le hacemos un append al contenedorCarrito (el modal)
     carrito.forEach((prod) => {
-        const div = document.createElement('div')
-        div.className = ('productoEnCarrito')
+        const div = document.createElement('div');
+        div.className = ('productoEnCarrito');
         div.innerHTML = `
-        <p>${prod.nombre}</p>
-        <p>Precio:$${prod.precio}</p>
-        <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
-        <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+            <p>${prod.nombre}</p>
+            <p>Precio:$${prod.precio}</p>
+            <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
+            <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+            <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
         `;
         contenedorCarrito.appendChild(div)
         
@@ -107,5 +108,6 @@ const actualizarCarrito = () => {
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
     //Por cada producto q recorro en mi carrito, al acumulador le suma la propiedad precio, con el acumulador
     //empezando en 0.
-
 }
+
+
