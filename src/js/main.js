@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
-    actualizarCarrito()
+    actualizarCarrito();
+    localStorage.removeItem('carrito');
 });
 
 
@@ -29,7 +30,7 @@ stockProductos.forEach((producto) => {
     const div = document.createElement('div')
     div.classList.add('producto')
     div.innerHTML = `
-        <img src=${producto.url} alt= "">
+        <img src=./public/imgProducts/${producto.url} alt= "">
         <h3>${producto.nombre}</h3>
         <p class="descProducto">${producto.desc}</p>
         <p class="precioProducto">Precio:$ ${producto.precio}</p>
@@ -60,7 +61,6 @@ const agregarAlCarrito = (prodId) => {
         
         carrito.push(item);
     }
-
     actualizarCarrito();
 }
 
@@ -72,20 +72,16 @@ const eliminarDelCarrito = (prodId) => {
 
     carrito.splice(indice, 1);
     
-    actualizarCarrito();  
+    actualizarCarrito();
+    localStorage.removeItem('carrito');
     console.log(carrito);
 }
 
 // ACTUALIZAR DEL CARRITO 
 const actualizarCarrito = () => {
-    //4- CUARTO PASO
-    //LOS APPENDS SE VAN ACUMULANDO CON LO QE HABIA ANTES
-    contenedorCarrito.innerHTML = ""; //Cada vez que yo llame a actualizarCarrito, lo primero q hago
-    //es borrar el nodo. Y despues recorro el array lo actualizo de nuevo y lo rellena con la info
-    //actualizado
-    //3 - TERCER PASO. AGREGAR AL MODAL. Recorremos sobre el array de carrito.
+   
+    contenedorCarrito.innerHTML = "";
 
-    //Por cada producto creamos un div con esta estructura y le hacemos un append al contenedorCarrito (el modal)
     carrito.forEach((prod) => {
         const div = document.createElement('div');
         div.className = ('productoEnCarrito');
@@ -97,16 +93,16 @@ const actualizarCarrito = () => {
         `;
         contenedorCarrito.appendChild(div)
         
-        localStorage.setItem('carrito', JSON.stringify(carrito))
+        localStorage.setItem('carrito', JSON.stringify(carrito));
 
-    })
-    //SEPTIMO PASO
+    });
     contadorCarrito.innerText = carrito.length // actualizamos con la longitud del carrito.
-    //OCTAVO PASO
     console.log(carrito)
-    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
-    //Por cada producto q recorro en mi carrito, al acumulador le suma la propiedad precio, con el acumulador
-    //empezando en 0.
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0);
 }
 
+// Limpiar LocalStorage
+const limpiarLocalStorage = () => {
+    storage.clear();
+}
 
