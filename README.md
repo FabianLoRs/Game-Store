@@ -1,4 +1,4 @@
 # Game-Store
-Game-Store para Escalab
+Game-Store for Escalab
 
-Puedes ver la pagina acá en 👉 https://fabianlors.github.io/Game-Store/ o https://game-store-escal.netlify.app/
+You can see the project here 👉 https://fabianlors.github.io/Game-Store/ or https://game-store-escal.netlify.app/
